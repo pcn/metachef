@@ -50,7 +50,7 @@ module ClusterChef
     # Node's facet name
     def facet()       node[:facet_name] ;  end
     # Node's facet index
-    def facet_index() node[:facet_index] ; end
+    def facet_index() node[:facet_index].to_i ; end
 
     def public_ip
       public_ip_of(node)
@@ -88,9 +88,21 @@ module ClusterChef
     end
 
     # add this class to the list of registered aspects
+    #
+    #     def log(name, val=nil, &block)
+    #       self.logs[name] = val if val
+    #       if block # autovivify and pass to block
+    #           self.logs[name] ||= LogAspect.new(self, name)
+    #           self.logs[name].instance_eval(&block)
+    #       end
+    #       self.logs
+    #     end
+    # 
     def self.has_aspect(klass)
       self.aspect_types[klass.plural_handle] = klass
+      # 'logs' method
       dsl_attr(klass.plural_handle, :kind_of => Mash, :dup_default => Mash.new)
+      # 'log' method: this is just a slightly modified dsl_attr 
       define_method(klass.handle) do |name, val=nil, &block|
         hsh = self.send(klass.plural_handle)
         #

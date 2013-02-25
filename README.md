@@ -1,6 +1,6 @@
 # metachef chef cookbook
 
-Installs/Configures metachef
+Cluster orchestration -- coordinates discovery, integration and decoupling of cookbooks
 
 ## Overview
 
@@ -57,32 +57,25 @@ when new services register.
 #### Implementation
 
 Nodes register a service by calling `announce`, which sets a hash containing
-'timestamp' (the time of registry) and other metadata passed in. 
-
-## Attributes
-
-* `[:tuning][:ulimit]`         - 
-* `[:tuning][:overcommit_memory]` -  (default: "1")
-* `[:tuning][:overcommit_ratio]` -  (default: "100")
-* `[:tuning][:swappiness]`     -  (default: "5")
-* `[:metachef][:conf_dir]`        -  (default: "/etc/metachef")
-* `[:metachef][:log_dir]`         -  (default: "/var/log/metachef")
-* `[:metachef][:home_dir]`        -  (default: "/etc/metachef")
-* `[:metachef][:user]`            -  (default: "root")
-* `[:metachef][:thttpd][:port]`   -  (default: "6789")
-* `[:metachef][:dashboard][:run_state]` -  (default: "start")
-* `[:users][:root][:primary_group]`   -  (default: "root")
+'timestamp' (the time of registry) and other metadata passed in.
 
 ## Recipes 
 
-* `burn_ami_prep`            - Burn Ami Prep
-* `dashboard`                - Lightweight dashboard for this machine: index of services and their dashboard snippets
 * `default`                  - Base configuration for metachef
-* `virtualbox_metadata`      - Virtualbox Metadata
+
 ## Integration
 
 Supports platforms: debian and ubuntu
 
+
+
+## Attributes
+
+* `[:metachef][:conf_dir]`            -  (default: "/etc/metachef")
+* `[:metachef][:log_dir]`             -  (default: "/var/log/metachef")
+* `[:metachef][:home_dir]`            -  (default: "/etc/metachef")
+* `[:metachef][:user]`                -  (default: "root")
+* `[:users][:root][:primary_group]`   -  (default: "root")
 
 ## License and Author
 
