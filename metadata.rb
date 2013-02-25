@@ -2,11 +2,12 @@ maintainer       "Philip (flip) Kromer - Infochimps, Inc"
 maintainer_email "coders@infochimps.com"
 license          "Apache 2.0"
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
-version          "3.0.3"
+version          "3.0.4"
 
 description      "Cluster orchestration -- coordinates discovery, integration and decoupling of cookbooks"
 
-recipe           "metachef::default",              "Base configuration for metachef"
+
+recipe           "metachef::default",                  "Base configuration for metachef"
 
 %w[ debian ubuntu ].each do |os|
   supports os
