@@ -1,3 +1,12 @@
+# DON'T USE THIS
+
+Flip has removed the original metachef.  
+
+In case you have a cookbook that uses/used metachef, I'm keeping this
+here so you can reference the particular functions and fill in the
+functions yourself.  However, don't use this in your cookbooks.
+
+
 # metachef chef cookbook
 
 Installs/Configures metachef
