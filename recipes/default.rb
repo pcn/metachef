@@ -18,3 +18,5 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+
+Chef::Application.fatal!("Don't use this cookbook.  See the README.md")
